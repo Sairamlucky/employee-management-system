@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0px;
+            padding:0px;
+            background:linear-gradient(135deg, #667eea, #764ba2);
+            min-height:100vh;
+            justify-content:center;
+            display:flex;
+            align-items:center;
+
+        }
+        .container{
+            max-width:500px;
+            margin:40px auto;
+            padding:30px;
+            background-color:white;
+            border-radius:10px;
+            font-size:10px;
+            box-shadow: 0 4px 50px rgba(126, 21, 212, 0.918)
+
+        }
+        h1{
+            text-align:center;
+            font-size:20px;
+            margin-bottom:25px;
+        }
+        label{
+            font-size:15px;
+            margin-bottom:10px;
+            font-weight:bold;
+            display:block;
+            color: #444;
+        }
+        input{
+            width: 100%;
+            padding:12px;
+            border-radius:5px;
+            border:1px solid #ccc;
+            margin-bottom:20px;
+            font-size:15px;
+            box-sizing:border-box;
+
+        }
+        input:focus{
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
+        }
+        button{
+            font-size:15px;
+            background-color:#0d6efd;
+            color:white;
+            width:100%;
+            padding:10px;
+            border-radius:10px;
+            border:none;
+            cursor:pointer;
+
+        }
+        button:hover{
+            background-color: #0dfd49;
+        }
+        .back-button{
+            display:block;
+            margin-top:10px;
+            border-radius:10px;
+            border:none;
+            cursor:pointer;
+            font-size:15px;
+            padding:10px;
+            text-decoration: none;
+            text-align:center;
+            background-color:#0d6efd;
+            color:white;
+
+        }
+        .back-button:hover{
+            background-color: #0dfd49; 
+        }
+        
+    </style>
+</head>
+<body>
+    <div class = "container">
+    <h1> Create Employee</h1>
+
+    <form action = "/employees/create" method = "POST">
+        <label for = "name">Employee Name</label>
+        <input type = "text" 
+        id = "name"
+        name = "name" 
+        placeholder = "Employee Name">
+
+        <label for = "email">Email</label>
+        <input type = "text" 
+        id="email"
+        name = "email" placeholder = "Enter Employee Email" 
+        required
+        >
+        <button type = "Submit">Create Employee</button>
+
+    </form>
+    <a href= "/employees" class="back-button">
+        Back to Employees
+    </a>
+    
+    </div>
+</body>
+</html>

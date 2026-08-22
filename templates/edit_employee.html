@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Employee</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(105deg, #667eea, #764ba2);
+
+            min-height: 100vh;
+            display: flex;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+
+            background-color: white;
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+
+            font-size: 15px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #ccc;
+            border-radius: 8px;
+
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #667eea;
+
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+
+            background-color: #667eea;
+            color: white;
+
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5568d8;
+        }
+
+        .back-button {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 15px;
+            padding: 12px;
+
+            background-color: #eee;
+            color: #333;
+
+            text-decoration: none;
+            border-radius: 8px;
+
+            font-size: 15px;
+        }
+
+        .back-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Edit Employee</h2>
+
+        <form action="/employees/edit/{{ employee[0] }}" method="POST">
+
+            <label for="name">Employee Name</label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                value="{{ employee[1] }}"
+                required
+            >
+
+            <label for="email">Employee Email</label>
+
+            <input
+                type="email"id="email"name="email"value="{{ employee[2] }}"
+                required>
+
+            <button type="submit">
+                Update Employee
+            </button>
+
+        </form>
+
+        <a href="/employees" class="back-button">
+            ← Back to Employees
+        </a>
+
+    </div>
+
+</body>
+
+</html>
