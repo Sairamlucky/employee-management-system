@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Details</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+
+            background-color: white;
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .employee-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 14px 5px;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .value {
+            color: #333;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+
+            text-align: center;
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .edit-btn {
+            background-color: #0d6efd;
+        }
+
+        .edit-btn:hover {
+            background-color: #0b5ed7;
+        }
+
+        .back-btn {
+            background-color: #6c757d;
+        }
+
+        .back-btn:hover {
+            background-color: #5c636a;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+        }
+
+        .delete-btn:hover {
+            background-color: #bb2d3b;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Employee Details</h1>
+
+        <div class="employee-info">
+
+            <div class="info-row">
+                <span class="label">Employee ID</span>
+                <span class="value">{{ employee[0] }}</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Name</span>
+                <span class="value">{{ employee[1] }}</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Email</span>
+                <span class="value">{{ employee[2] }}</span>
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+            <a
+                href="/employees/edit/{{ employee[0] }}"
+                class="btn edit-btn">
+                Edit
+            </a>
+
+            <a
+                href="/employees/delete/{{ employee[0] }}"
+                class="btn delete-btn"
+                onclick="return confirm('Are you sure you want to delete this employee?')">
+                Delete
+            </a>
+
+            <a
+                href="/employees"
+                class="btn back-btn">
+                Back
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

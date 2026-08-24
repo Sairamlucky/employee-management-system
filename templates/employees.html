@@ -122,15 +122,79 @@
                 font-size: 12px;
             }
         }
+        .search-form{
+            display:flex;
+            gap:10px;
+            font-size:10px;
+        }
+        .search-form input{
+            font-size:15px;
+            border:2px solid grey;
+            border-radius:5px;
+            padding:12px;
+            outline:none;
+
+        }
+        .search-form input:focus {
+             border-color: green;
+             box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+        .search-form button{
+            padding:12px 20px;
+            border:none;
+            border-radius:5px;
+            background-color: #0b5ed7;
+            color: white;
+            font-size: 15px;
+    cursor: pointer;
+
+        }
+        .search-form button:hover{
+            background-color:rgb(45, 165, 45);
+        }
+
+        .clear-btn{
+            color:white;
+            text-decoration: none;
+            border:none;
+            padding:12px 20px;
+            background-color:#6c757d;
+            border-radius:5px;
+            font-size:15px;
+        }
+        .clear-btn:hover {
+         background-color: #5c636a;
+        }
+        .view-btn {
+         background-color: #198754;
+        }
+
+        .view-btn:hover {
+         background-color: #157347;
+        }
     </style>
 </head>
 
 <body>
 
     <div class="container">
+        
 
         <h2>Employees List</h2>
+    <form action="/employees" method="GET" class="search-form">
 
+    <input
+        type="text"
+        name="search"
+        value="{{ search }}"
+        placeholder="Search by name or email..."
+    >
+
+    <button type="submit">Search</button>
+
+    <a href="/employees" class="clear-btn">Clear</a>
+
+</form>
         <div class="top-bar">
             <a href="/employees/create" class="add-btn">
                 + Add Employee
@@ -154,6 +218,10 @@
                 <td>{{ employee[2] }}</td>
 
                 <td>
+                    <a class="action-btn view-btn"
+                       href="/employees/view/{{ employee[0] }}">
+                        View
+                    </a>
                     <a class="action-btn"
                        href="/employees/edit/{{ employee[0] }}">
                         Edit
